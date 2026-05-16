@@ -170,5 +170,5 @@ To run this project, clone the repository and install the required Python librar
 
 ```bash
 git clone https://github.com/AhmadAl-Eid/Image-Compression-and-Classification-with-Deep-Learning---EE413.git
-cd "2nd project-Final"
+cd "2nd_project_Final"
 pip install -r requirements.txt
