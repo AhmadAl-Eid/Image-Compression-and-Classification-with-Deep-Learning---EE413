@@ -60,6 +60,9 @@ Validation results were used to check generalization and reduce overfitting
 
 Early stopping was applied when validation performance stopped improving
 
+<img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/270d0f7c-2e93-4e27-820e-df93ba74f38f" />
+
+
 ### 5. Baseline Results
 
 ResNet18 achieved the best baseline performance on uncompressed test images
@@ -70,11 +73,16 @@ MobileNetV3-Small test accuracy: 72.6%
 
 ResNet18 also achieved higher macro-F1 and lower test loss
 
-MobileNetV3-Small used far fewer parameters, making it more lightweight and efficient.
-
 tradeoff:
 
 ResNet18 higher accuracy but MobileNetV3-Small gives better efficiency and smaller model size
+
+| Model | Parameters | Best Validation Accuracy | Test Loss | Test Accuracy | Test Macro-F1 |
+|---|---:|---:|---:|---:|---:|
+| ResNet18 | 11.21M | 0.756 | 0.987 | 0.747 | 0.747 |
+| MobileNetV3-Small | 1.58M | 0.725 | 1.117 | 0.726 | 0.725 |
+
+
 
 ## Wavelet-Based Image Compression
 
@@ -95,6 +103,23 @@ Mohammed Aldubais
 
 Faisal Alsalhi
 
+# Libraries Used
+
+Python
+
+PyTorch
+
+Torchvision
+
+NumPy
+
+Matplotlib
+
+Scikit-learn
+
+PyWavelets
+
+Pandas
 # How to install the dataset before running the project
 
 1. Go to google drive then my drive and upload folder and name it EE413 then create another folder inside it and name it miniimagenet and upload the trian,val,test files
