@@ -148,7 +148,7 @@ pip install -r requirements.txt
 pip install PyWavelets scikit-learn -q
 ```
 
-### What Part 4 Does
+### What Part Fine Tunning Model Two
 
 Part 4 takes the MobileNetV3-Small model from Part 1 and fine-tunes it on wavelet-compressed training images. The training set is compressed on the fly using a 2-level Haar DWT with hard thresholding (threshold = 0.15, ~5:1 compression ratio). The idea is that by training on compressed images, the model learns to extract useful features even when fine details are lost — making it more robust at test time. After fine-tuning, both the original and the fine-tuned MobileNetV3 are evaluated on the test set at three compression levels (Low 2:1, Medium 5:1, High 10:1) to measure how much robustness improved.
 
