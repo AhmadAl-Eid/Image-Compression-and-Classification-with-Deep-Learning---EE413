@@ -105,6 +105,8 @@ Faisal Alsalhi
 
 # Libraries Used
 
+The required Python packages are listed in `requirements.txt`
+
 Python
 
 PyTorch
@@ -123,3 +125,12 @@ Pandas
 # How to install the dataset before running the project
 
 1. Go to google drive then my drive and upload folder and name it EE413 then create another folder inside it and name it miniimagenet and upload the trian,val,test files
+
+# Setup Instruction
+
+To run this project, clone the repository and install the required Python libraries from `requirements.txt`.
+
+```bash
+git clone <repository-link>
+cd "2nd project-Final"
+pip install -r requirements.txt
