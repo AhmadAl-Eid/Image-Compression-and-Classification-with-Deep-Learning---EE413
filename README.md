@@ -11,7 +11,7 @@ This project study the effect of image compression on image classification. Two 
 
 # Methodology
 
-## Model Selection and Baseline Establishment
+## Model Selection and Baseline Establishment - Ahmad Al-Eid
 ### 1. Dataset Preparation
 
 Mini-ImageNet dataset with 100 classes
