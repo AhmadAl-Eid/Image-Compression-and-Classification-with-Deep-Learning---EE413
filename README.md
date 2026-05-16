@@ -90,7 +90,30 @@ Mohammed alduabis
 
 ## Training on Compressed Data
 
-Ali Alhaji - Faisl Alsalhi
+### Model one
+
+
+
+### What Part Fine Tunning Model Two do
+
+Part 4 takes the MobileNetV3-Small model from Part 1 and fine-tunes it on wavelet-compressed training images. The training set is compressed on the fly using a 2-level Haar DWT with hard thresholding (threshold = 0.15, ~5:1 compression ratio). The idea is that by training on compressed images, the model learns to extract useful features even when fine details are lost — making it more robust at test time. After fine-tuning, both the original and the fine-tuned MobileNetV3 are evaluated on the test set at three compression levels (Low 2:1, Medium 5:1, High 10:1) to measure how much robustness improved.
+
+### Results Summary
+
+The fine-tuned model achieved a best validation accuracy of **72.19%** at Epoch 3, with training loss dropping from 0.4193 to 0.2882 across 5 epochs.
+
+When tested on compressed images, the fine-tuned model outperformed the original MobileNetV3 at every compression level. The biggest improvement was at High (10:1) compression, where the fine-tuned model scored 67.81% compared to only 59.97% for the original — a gain of 7.84%. In terms of robustness, the accuracy drop at High compression was reduced from 10.1% to just 4.5% (55% improvement), and at Medium compression from 1.6% to only 0.2% (10× less degradation).
+
+| Model | Compression | Accuracy | Macro F1 |
+|-------|-------------|----------|----------|
+| MobileNetV3 (Original) | None (Baseline) | 0.7010 | 0.6999 |
+| MobileNetV3 (Original) | Low (2:1) | 0.7023 | 0.7017 |
+| MobileNetV3 (Original) | Medium (5:1) | 0.6854 | 0.6864 |
+| MobileNetV3 (Original) | High (10:1) | 0.5997 | 0.6014 |
+| MobileNetV3 (Compressed FT) | None (Baseline) | 0.7234 | 0.7221 |
+| MobileNetV3 (Compressed FT) | Low (2:1) | 0.7255 | 0.7243 |
+| MobileNetV3 (Compressed FT) | Medium (5:1) | 0.7214 | 0.7214 |
+| MobileNetV3 (Compressed FT) | High (10:1) | **0.6781** | **0.6799** |
 
 
 # Team Members
@@ -134,37 +157,3 @@ To run this project, clone the repository and install the required Python librar
 git clone https://github.com/AhmadAl-Eid/Image-Compression-and-Classification-with-Deep-Learning---EE413.git
 cd "2nd project-Final"
 pip install -r requirements.txt
-
-
-
-
-## Part 4 — Fine-tuning MobileNetV3-Small on Compressed Data
-
-### Setup
-
-
-
-```bash
-pip install PyWavelets scikit-learn -q
-```
-
-### What Part Fine Tunning Model Two do
-
-Part 4 takes the MobileNetV3-Small model from Part 1 and fine-tunes it on wavelet-compressed training images. The training set is compressed on the fly using a 2-level Haar DWT with hard thresholding (threshold = 0.15, ~5:1 compression ratio). The idea is that by training on compressed images, the model learns to extract useful features even when fine details are lost — making it more robust at test time. After fine-tuning, both the original and the fine-tuned MobileNetV3 are evaluated on the test set at three compression levels (Low 2:1, Medium 5:1, High 10:1) to measure how much robustness improved.
-
-### Results Summary
-
-The fine-tuned model achieved a best validation accuracy of **72.19%** at Epoch 3, with training loss dropping from 0.4193 to 0.2882 across 5 epochs.
-
-When tested on compressed images, the fine-tuned model outperformed the original MobileNetV3 at every compression level. The biggest improvement was at High (10:1) compression, where the fine-tuned model scored 67.81% compared to only 59.97% for the original — a gain of 7.84%. In terms of robustness, the accuracy drop at High compression was reduced from 10.1% to just 4.5% (55% improvement), and at Medium compression from 1.6% to only 0.2% (10× less degradation).
-
-| Model | Compression | Accuracy | Macro F1 |
-|-------|-------------|----------|----------|
-| MobileNetV3 (Original) | None (Baseline) | 0.7010 | 0.6999 |
-| MobileNetV3 (Original) | Low (2:1) | 0.7023 | 0.7017 |
-| MobileNetV3 (Original) | Medium (5:1) | 0.6854 | 0.6864 |
-| MobileNetV3 (Original) | High (10:1) | 0.5997 | 0.6014 |
-| MobileNetV3 (Compressed FT) | None (Baseline) | 0.7234 | 0.7221 |
-| MobileNetV3 (Compressed FT) | Low (2:1) | 0.7255 | 0.7243 |
-| MobileNetV3 (Compressed FT) | Medium (5:1) | 0.7214 | 0.7214 |
-| MobileNetV3 (Compressed FT) | High (10:1) | **0.6781** | **0.6799** |
