@@ -88,8 +88,11 @@ Ali Alhaji - Faisl Alsalhi
 # Team Members
 
 Ahmad Al-Eid
+
 Ali Alhajji
+
 Mohammed Aldubais
+
 Faisal Alsalhi
 
 # How to install the dataset before running the project
