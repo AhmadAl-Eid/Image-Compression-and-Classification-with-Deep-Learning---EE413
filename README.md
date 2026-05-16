@@ -92,6 +92,21 @@ Mohammed alduabis
 
 ### Model one
 
+Approach & Setup:
+
+The ResNet-18 model was warm-started from the Part 1 checkpoint rather than re-initialized from ImageNet weights, preserving Mini-ImageNet knowledge. Training was performed on medium-compressed images (5:1 ratio, threshold = 0.15) using AdamW with lr = 5e-5, weight decay = 1e-4, batch size = 64, and up to 10 epochs with patience-3 early stopping.
+
+Training Loop:
+
+Each epoch trained on wavelet-compressed images with batch loss recorded. A compressed validation set monitored performance, with ReduceLROnPlateau adjusting the learning rate on plateaus. The best checkpoint was restored after training. Final evaluation reported accuracy and macro F1 across all three compression levels.
+
+Results:
+
+The fine-tuned model showed reduced accuracy drop compared to the original ResNet-18 baseline across all compression levels — approximately +0.02 improvement at low (2:1), +0.05 at medium (5:1), and +0.08 at high (10:1) compression.
+
+Conclusion:
+
+Training ResNet-18 on wavelet-compressed images significantly improves its robustness under compression, confirming that domain-matched training data is an effective strategy for compression-resilient image classification.
 
 
 ### What Part Fine Tunning Model Two do
