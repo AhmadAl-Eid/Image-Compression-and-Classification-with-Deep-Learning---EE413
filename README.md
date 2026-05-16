@@ -131,6 +131,6 @@ Pandas
 To run this project, clone the repository and install the required Python libraries from `requirements.txt`.
 
 ```bash
-git clone <repository-link>
+git clone https://github.com/AhmadAl-Eid/Image-Compression-and-Classification-with-Deep-Learning---EE413.git
 cd "2nd project-Final"
 pip install -r requirements.txt
